@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ink Inventory Program</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
+        header { background-color: #e67e22; color: white; padding: 15px; display: flex; align-items: center; justify-content: center; gap: 20px; border-bottom: 5px solid #d35400; }
+        .logo { height: 80px; border-radius: 8px; background: white; padding: 5px; }
+        .tabs { display: flex; background: #d35400; justify-content: center; }
+        .tab-btn { padding: 15px 30px; border: none; background: none; color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .tab-btn:hover { background: #e67e22; }
+        .active-btn { background: #f4f4f4 !important; color: #d35400 !important; }
+        .tab-content { display: none; padding: 30px; max-width: 900px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .active { display: block; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .action-btn { width: 100%; padding: 15px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        .action-btn:hover { background-color: #3498db; }
+        .search-container { display: flex; gap: 10px; align-items: flex-end; }
+        .search-btn { background-color: #27ae60; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; margin-bottom: 8px; }
+        .report-controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .date-filter { background: #eee; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ddd; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #e67e22; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .expired-row { background-color: #ffcccc !important; color: #c0392b; font-weight: bold; }
+
+        @media print {
+            header, .tabs, .report-controls, .date-filter, .action-btn, .search-btn { display: none !important; }
+            .tab-content { display: block !important; box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+            body { background-color: white; }
+            table { width: 100%; border: 1px solid black; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="/logo.png" alt="Company Logo" class="logo">
+    <h1 style="margin: 0;">INK MANAGEMENT SYSTEM</h1>
+</header>
+
+<div class="tabs">
+    <button id="btn-grn" class="tab-btn active-btn" onclick="openTab('grn')">GRN PROCESS</button>
+    <button id="btn-issue" class="tab-btn" onclick="openTab('issue')">ISSUED PROCESS</button>
+    <button id="btn-report" class="tab-btn" onclick="openTab('report')">REPORTS</button>
+</div>
+
+<div id="grn" class="tab-content active">
+    <h2>Goods Received (GRN)</h2>
+    <label>Ink Number</label><input type="text" id="grnInkNo" placeholder="e.g. CYAN-01">
+    <label>Quantity</label><input type="number" id="grnQty" placeholder="0">
+    <label>Rack Number</label><input type="text" id="grnRack" placeholder="e.g. A-101">
+    <label>Expiry Date</label><input type="date" id="grnExpiry">
+    <button class="action-btn" onclick="submitGRN()">Save to Inventory</button>
+</div>
+
+<div id="issue" class="tab-content">
+    <h2>Issue Ink</h2>
+    <label>Search Ink Number</label>
+    <div class="search-container">
+        <input type="text" id="issueInkNo" placeholder="Enter Ink Number">
+        <button class="search-btn" onclick="searchInkDetails()">Search</button>
+    </div>
+    <div id="searchInfo" style="padding: 15px; background: #ecf0f1; border-radius: 4px; margin: 10px 0; display: none;">
+        <strong>Available:</strong> <span id="foundQty">0</span> | <strong>Rack:</strong> <span id="foundRack">-</span>
+    </div>
+    <label>Quantity to Issue</label><input type="number" id="issueQty" placeholder="Amount to remove">
+    <button class="action-btn" onclick="submitIssue()">Confirm Issue</button>
+</div>
+
+<div id="report" class="tab-content">
+    <h2>Inventory Reports</h2>
+    <div class="report-controls">
+        <button class="action-btn" style="width: auto; background-color: #c0392b;" onclick="loadExpiredReport()">Expired Report</button>
+        <button class="action-btn" style="width: auto; background-color: #27ae60;" onclick="toggleMovingSection()">Moving Report</button>
+        <button class="action-btn" style="width: auto; background-color: #8e44ad;" onclick="loadAllReport()">Full Stock</button>
+        <button class="action-btn" style="width: auto; background-color: #34495e;" onclick="window.print()">Print to PDF</button>
+    </div>
+    <div id="movingSection" class="date-filter" style="display:none;">
+        <label>From Date:</label><input type="date" id="fromDate">
+        <label>To Date:</label><input type="date" id="toDate">
+        <button class="action-btn" onclick="loadMovingReport()">Generate Moving Report</button>
+    </div>
+    <div id="reportTableArea"></div>
+</div>
+
+<script>
+    function openTab(t){
+        let c=document.getElementsByClassName("tab-content"),b=document.getElementsByClassName("tab-btn");
+        for(let x of c)x.classList.remove("active");for(let y of b)y.classList.remove("active-btn");
+        document.getElementById(t).classList.add("active");document.getElementById("btn-"+t).classList.add("active-btn");
+    }
+
+    async function submitGRN(){
+        const d={inkNumber:document.getElementById('grnInkNo').value,quantity:parseInt(document.getElementById('grnQty').value),rackNumber:document.getElementById('grnRack').value,expiryDate:document.getElementById('grnExpiry').value};
+        const r=await fetch('/api/ink/grn',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});
+        if(r.ok) { alert("Inventory Updated!"); document.getElementById('grnInkNo').value=""; document.getElementById('grnQty').value=""; }
+    }
+
+    async function searchInkDetails(){
+        const n=document.getElementById('issueInkNo').value,r=await fetch(`/api/ink/search/${n}`);
+        if(r.ok){const i=await r.json();document.getElementById('foundQty').innerText=i.quantity;document.getElementById('foundRack').innerText=i.rackNumber;document.getElementById('searchInfo').style.display="block";}
+        else{alert("Ink Not Found"); document.getElementById('searchInfo').style.display="none";}
+    }
+
+    async function submitIssue(){
+        const n=document.getElementById('issueInkNo').value,q=document.getElementById('issueQty').value;
+        const r=await fetch(`/api/ink/issue?inkNumber=${n}&quantityToIssue=${q}`,{method:'POST'});
+        alert(await r.text()); searchInkDetails();
+    }
+
+    function toggleMovingSection(){const s=document.getElementById('movingSection');s.style.display=s.style.display==='none'?'block':'none';}
+
+    async function loadAllReport(){const r=await fetch('/api/ink/all');renderTable(await r.json(),"FULL STOCK REPORT");}
+
+    async function loadExpiredReport(){
+        const r=await fetch('/api/ink/all'),d=await r.json(),t=new Date().toISOString().split('T')[0];
+        renderTable(d.filter(i=>i.expiryDate&&i.expiryDate<t),"EXPIRED INK REPORT",true);
+    }
+
+    async function loadMovingReport(){
+        const f=document.getElementById('fromDate').value,t=document.getElementById('toDate').value;
+        if(!f || !t) { alert("Select Dates First"); return; }
+        const r=await fetch('/api/ink/all'),d=await r.json();
+        renderTable(d.filter(i=>i.expiryDate>=f&&i.expiryDate<=t),`MOVING REPORT (${f} to ${t})`);
+    }
+
+    function renderTable(d,t,h=false){
+        const today=new Date().toISOString().split('T')[0];
+        let htm=`<h3>${t}</h3><table><tr><th>Ink #</th><th>Stock</th><th>Rack</th><th>Expiry</th></tr>`;
+        if(d.length===0){ htm+=`<tr><td colspan="4" style="text-align:center;">No Records Found</td></tr>`; }
+        else{ d.forEach(i=>{const e=i.expiryDate&&i.expiryDate<today,c=(h||e)?'class="expired-row"':'';htm+=`<tr ${c}><td>${i.inkNumber}</td><td>${i.quantity}</td><td>${i.rackNumber}</td><td>${i.expiryDate||'N/A'}</td></tr>`;}); }
+        document.getElementById('reportTableArea').innerHTML=htm+'</table>';
+    }
+</script>
+</body>
+</html>
