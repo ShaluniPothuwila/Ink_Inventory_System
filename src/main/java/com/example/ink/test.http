@@ -1,0 +1,13 @@
+### Test GRN Process (Add Ink)
+POST http://localhost:8080/api/ink/grn
+Content-Type: application/json
+
+{
+  "inkNumber": "CYAN-001",
+  "quantity": 50,
+  "rackNumber": "RACK-A1",
+  "expiryDate": "2026-12-31"
+}
+
+### Test Issued Process (Remove Ink)
+POST http://localhost:8080/api/ink/issue?inkNumber=CYAN-001&quantityToIssue=10

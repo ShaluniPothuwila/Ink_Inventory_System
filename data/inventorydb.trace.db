@@ -1,0 +1,123 @@
+2026-02-02 16:45:23.066646+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT @[*]@character_set_database, @@sql_mode"; expected "identifier"; SQL statement:
+SELECT @@character_set_database, @@sql_mode [42001-240]
+2026-02-02 16:45:24.009396+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine=InnoDB [42001-240]
+2026-02-02 16:45:24.015133+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+alter table ink drop index UK2sd8hedq29is10ckja4y8aokq [42104-240]
+2026-02-02 16:45:24.017469+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found; SQL statement:
+alter table ink add constraint UK2sd8hedq29is10ckja4y8aokq unique (ink_number) [42102-240]
+2026-02-02 16:46:36.326345+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:39.379249+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:41.306662+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:42.493736+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:43.580378+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:44.729127+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:47.565918+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:53.357767+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:46:54.333773+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:47:05.168229+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:47:09.755293+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:47:10.394276+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 16:47:10.880206+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-240]
+2026-02-02 17:13:00.628411+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT @[*]@character_set_database, @@sql_mode"; expected "identifier"; SQL statement:
+SELECT @@character_set_database, @@sql_mode [42001-224]
+2026-02-02 17:13:01.367461+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine=InnoDB [42001-224]
+2026-02-02 17:13:01.372547+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+alter table ink drop index UK_2sd8hedq29is10ckja4y8aokq [42104-224]
+2026-02-02 17:13:01.374023+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found; SQL statement:
+alter table ink add constraint UK_2sd8hedq29is10ckja4y8aokq unique (ink_number) [42102-224]
+2026-02-02 17:13:16.643950+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-02 17:13:17.490229+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-02 17:13:18.514642+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-02 17:13:19.008820+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-02 17:13:20.999401+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-02 17:13:24.109490+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-02 17:13:48.393449+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 [42104-224]
+2026-02-03 09:32:56.840064+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT @[*]@character_set_database, @@sql_mode"; expected "identifier"; SQL statement:
+SELECT @@character_set_database, @@sql_mode [42001-224]
+2026-02-03 09:32:58.094747+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine=InnoDB [42001-224]
+2026-02-03 09:32:58.099749+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+alter table ink drop index UK_2sd8hedq29is10ckja4y8aokq [42104-224]
+2026-02-03 09:32:58.100760+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found; SQL statement:
+alter table ink add constraint UK_2sd8hedq29is10ckja4y8aokq unique (ink_number) [42102-224]
+2026-02-03 09:38:15.049807+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT @[*]@character_set_database, @@sql_mode"; expected "identifier"; SQL statement:
+SELECT @@character_set_database, @@sql_mode [42001-224]
+2026-02-03 09:38:15.857721+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table ink (id bigint not null auto_increment, expiry_date date, ink_number varchar(255), quantity integer, rack_number varchar(255), primary key (id)) engine=InnoDB [42001-224]
+2026-02-03 09:38:15.863591+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+alter table ink drop index UK_2sd8hedq29is10ckja4y8aokq [42104-224]
+2026-02-03 09:38:15.864591+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found; SQL statement:
+alter table ink add constraint UK_2sd8hedq29is10ckja4y8aokq unique (ink_number) [42102-224]
+2026-02-03 09:38:56.558081+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-03 09:38:59.692439+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-03 09:39:10.186153+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 where i1_0.ink_number=? [42104-224]
+2026-02-03 09:39:17.542002+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 [42104-224]
+2026-02-03 09:39:19.668301+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INK" not found (this database is empty); SQL statement:
+select i1_0.id,i1_0.expiry_date,i1_0.ink_number,i1_0.quantity,i1_0.rack_number from ink i1_0 [42104-224]
